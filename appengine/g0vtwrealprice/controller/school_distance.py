@@ -1,5 +1,6 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 class SchoolDistanceController(object):
-  def getQueryPage(self):
-    return "Hello world";
+  def getSchoolList(self):
+    return {"schools": ["A", "B"];

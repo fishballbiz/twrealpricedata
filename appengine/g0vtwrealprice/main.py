@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 #
 # Copyright 2007 Google Inc.
 #
@@ -15,12 +16,51 @@
 # limitations under the License.
 #
 import webapp2
+import json
 from controller.school_distance import SchoolDistanceController;
 
-class SchoolHandler(webapp2.RequestHandler):
-    def get(self):
-        self.response.write(SchoolDistanceController().getQueryPage())
+city_list = {
+  "cities":[
+      "台北市",
+      "基隆市",
+      "宜蘭縣",
+      "新北市",
+      "連江縣",
+      "新竹市",
+      "新竹縣",
+      "桃園縣",
+      "苗栗縣",
+      "台中市",
+      "南投縣",
+      "彰化縣",
+      "嘉義市",
+      "嘉義縣",
+      "雲林縣",
+      "台南市",
+      "澎湖縣",
+      "金門縣",
+      "高雄市",
+      "台東縣",
+      "屏東縣",
+      "花蓮縣"]
+  }
+
+
+class SchoolListHandler(webapp2.RequestHandler):
+  def get(self):
+    self.response.headers['Content-Type'] = 'application/json'
+    self.response.write(
+       json.dumps(SchoolDistanceController().getSchoolList()))
+
+
+class CityListHandler(webapp2.RequestHandler):
+  def get(self):
+    self.response.headers['Content-Type'] = 'application/json'
+    self.response.write(
+       json.dumps(city_list))
+
 
 app = webapp2.WSGIApplication([
-    ('/', SchoolHandler)
+    ('/api/schoollist', SchoolListHandler),
+    ('/api/citylist', CityListHandler)
 ], debug=True)
