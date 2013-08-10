@@ -1,16 +1,20 @@
 doctype 5
-html(lang="zh-TW")
+html(lang="zh-TW", ng-app)
   head
     title G0V 時價登錄 - 學校房價關係圖
     link(
       href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css",
       rel="stylesheet")
     link(href="s/nv.d3.css", rel="stylesheet", type="text/css")
+
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js")
     script(src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js")
+    script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js")
     script(src="s/d3.v3.js")
     script(src="s/nv.d3.min.js")
+    script(src="s/controllers.js")
 
-  body
+  body(ng-controller="SchoolController")
     ul.nav.nav-tabs
       li.active
         a(href="#school", data-toggle="tab")
@@ -21,8 +25,8 @@ html(lang="zh-TW")
           label(for='area').col-lg-4.control-label 縣市
           .col-lg-8
             select.form-control
-              option 台北市
-              option 台北縣
+              option(ng-repeat="city in citydata.cities")
+                | {{ city }}
         .col-lg-3
           label(for='area').col-lg-4.control-label 學校
           .col-lg-8

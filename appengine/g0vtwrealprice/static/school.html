@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" ng-app>
   <head>
     <title>G0V 時價登錄 - 學校房價關係圖</title>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
     <link href="s/nv.d3.css" rel="stylesheet" type="text/css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script src="s/d3.v3.js"></script>
     <script src="s/nv.d3.min.js"></script>
+    <script src="s/controllers.js"></script>
   </head>
-  <body>
+  <body ng-controller="SchoolController">
     <ul class="nav nav-tabs">
       <li class="active"><a href="#school" data-toggle="tab">學校周邊房價關係表</a></li>
     </ul>
@@ -18,8 +21,7 @@
           <label for="area" class="col-lg-4 control-label">縣市</label>
           <div class="col-lg-8">
             <select class="form-control">
-              <option>台北市</option>
-              <option>台北縣</option>
+              <option ng-repeat="city in citydata.cities">{{ city }}</option>
             </select>
           </div>
         </div>

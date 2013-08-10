@@ -3,4 +3,4 @@
 
 class SchoolDistanceController(object):
   def getSchoolList(self):
-    return {"schools": ["A", "B"];
+    return {"schools": ["A", "B"]};
