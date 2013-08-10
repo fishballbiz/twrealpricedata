@@ -1,0 +1,31 @@
+doctype 5
+html(lang="zh-TW")
+  head
+    title G0V 時價登錄 - 學校房價關係圖
+    link(
+      href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css",
+      rel="stylesheet")
+    script(src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js")
+    
+  body
+    ul.nav.nav-tabs
+      li.active
+        a(href="#school", data-toggle="tab")
+          | 學校周邊房價關係表
+    .row
+      form.form-horizontal
+        .col-lg-3
+          label(for='area').col-lg-4.control-label 縣市
+          .col-lg-8
+            select.form-control
+              option 台北市
+              option 台北縣
+        .col-lg-3
+          label(for='area').col-lg-4.control-label 學校
+          .col-lg-8
+            select.form-control
+              option 大安國中
+              option 台灣大學
+     .row
+       .col-lg-12
+         #fancy_graph
